@@ -1,0 +1,5 @@
+# Normalise line endings to LF in the repo (so Linux/Kali get clean scripts)
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.gif binary

@@ -1,0 +1,14 @@
+requests>=2.31
+urllib3>=2.0
+rich>=13.7
+playwright>=1.42
+httpx>=0.26
+beautifulsoup4>=4.12
+
+# Optional, free, offline: `--llm-assist` talks to a local Ollama server over the
+# httpx dependency above — no extra Python package and no paid API. Install Ollama
+# separately only if you want it (https://ollama.com); the tool runs fully without it.
+
+# Optional: only needed for YAML config files (--config x.yaml). JSON configs work
+# with the standard library, so this stays optional.
+pyyaml>=6.0

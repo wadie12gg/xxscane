@@ -1,0 +1,66 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "xsscane"
+version = "1.0.0"
+description = "Modular XSS scanner: crawling, context-aware fuzzing, WAF evasion, and blind/out-of-band detection."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "wadiebid", email = "wadiewadie975@gmail.com" }]
+keywords = ["xss", "security", "dast", "scanner", "pentest", "web-security", "appsec"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Information Technology",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Security",
+]
+dependencies = [
+    "requests>=2.31",
+    "urllib3>=2.0",
+    "rich>=13.7",
+    "httpx>=0.26",
+    "beautifulsoup4>=4.12",
+    "playwright>=1.42",
+]
+
+[project.optional-dependencies]
+# YAML config files only (JSON configs work with the standard library).
+yaml = ["pyyaml>=6.0"]
+dev = ["pytest>=7", "pyyaml>=6.0"]
+
+[project.scripts]
+xsscane = "xsscane.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/wadie12gg/xsscane"
+Repository = "https://github.com/wadie12gg/xsscane"
+Issues = "https://github.com/wadie12gg/xsscane/issues"
+
+# The source keeps its flat layout (core/, modules/, payloads/, utils/); these are
+# mapped under the `xsscane` namespace at build time so nothing collides in
+# site-packages and no files have to be moved.
+[tool.setuptools]
+packages = [
+    "xsscane",
+    "xsscane.core",
+    "xsscane.modules",
+    "xsscane.payloads",
+    "xsscane.utils",
+]
+
+[tool.setuptools.package-dir]
+"xsscane.core" = "core"
+"xsscane.modules" = "modules"
+"xsscane.payloads" = "payloads"
+"xsscane.utils" = "utils"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

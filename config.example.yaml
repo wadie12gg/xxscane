@@ -1,0 +1,27 @@
+# Example config for: python main.py --config config.example.yaml
+# Keys are the CLI option names (dashes or underscores). CLI flags override these.
+# YAML needs PyYAML (pip install pyyaml); a .json file works with no extra deps.
+
+url: https://target.tld/?q=test
+type: reflected,dom
+evasion: 3
+
+# Deep scan
+deep-scan: true
+max-depth: 3
+max-pages: 400
+concurrency: 30
+
+# Politeness
+rate: 20            # max requests/second (0 = unlimited); Retry-After is honoured on 429
+jitter-min: 0.5
+jitter-max: 2.0
+
+# Reporting
+output: report.html
+
+# Auth-aware navigation (optional)
+# deep-nav: true
+# login-url: https://target.tld/login
+# username: alice
+# password: s3cret

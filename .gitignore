@@ -1,0 +1,35 @@
+# Byte-compiled / build artifacts
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.eggs/
+
+# Test / tooling caches
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Scan output
+*.html
+*.sarif
+report.*
+xss_*.json
+xss_*.md
+
+# Local config / secrets (ship config.example.yaml instead)
+config.yaml
+config.json
+config.local.*
+
+# Editor / OS / local agent config
+.vscode/
+.idea/
+.DS_Store
+.claude/
